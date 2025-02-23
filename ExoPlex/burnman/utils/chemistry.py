@@ -28,6 +28,7 @@ def read_masses():
     """
 
     file = os.getcwd().strip('Examples')+'ExoPlex/burnman/data/input_masses/atomic_masses.dat'
+    file = os.getcwd()+'/burnman/data/input_masses/atomic_masses.dat'
     datalines = open(file).readlines()
 
     lookup = dict()

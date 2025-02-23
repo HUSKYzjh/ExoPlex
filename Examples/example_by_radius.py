@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     Radius_planet = 1
     #Need to give the run a name. This will be used as the name of the output files
-    Output_filename = 'Filename'
+    Output_filename = 'D:\plant-sun\ExoPlex\Examples\example_by_radius'
 
     #Next user must input the ratios by mole (Earth is Ca/Mg = .07, Si.Mg = 0.90, Al/Mg = 0.09, Fe/Mg = 0.9)
     CaMg = 0.07
@@ -112,6 +112,16 @@ if __name__ == "__main__":
     #Planet.get('phases') = list of phases and their molar fractions
     #Planet.get('alpha') = list of values of thermal expansivity points from calculation (1/K)
     #Planet.get('cp') = list of values of specific heat points from calculation (SI)
+    # Planet 是一个字典，包含了许多重要的参数信息：
+    # Planet.get('radius') = 从计算中得到的半径点列表（单位：米）
+    # Planet.get('mass') = 从计算中得到的每个半径点的累计质量列表（单位：千克）
+    # Planet.get('density') = 从计算中得到的密度列表（单位：千克/立方米）
+    # Planet.get('temperature') = 从计算中得到的温度点列表（单位：开尔文）
+    # Planet.get('gravity') = 从计算中得到的重力点列表（单位：SI）
+    # Planet.get('pressure') = 从计算中得到的压力点列表（单位：巴）
+    # Planet.get('phases') = 阶段及其摩尔分数列表
+    # Planet.get('alpha') = 从计算中得到的热膨胀系数点列表（单位：1/K）
+    # Planet.get('cp') = 从计算中得到的比热容点列表（单位：SI）
 
     print()
     print("Mass = ", '%.3f' % (Planet['mass'][-1] / 5.97e24), "Earth masses")
@@ -131,8 +141,8 @@ if __name__ == "__main__":
     print()
 
     #If you'd like the full output, uncomment out these lines! 
-    #Output_filename = Output_filename + '_Radius_'+ str('%.2f'%(Planet['radius'][-1]/6371e3))
-    #exo.functions.write(Planet,Output_filename)
+    Output_filename = Output_filename + '_Radius_'+ str('%.2f'%(Planet['radius'][-1]/6371e3))
+    exo.functions.write(Planet,Output_filename)
 
 
     #Now let us plot

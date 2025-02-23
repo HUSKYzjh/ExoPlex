@@ -461,7 +461,8 @@ def write(Planet,filename):
         line_name.append(str(i))
 
     string_element = ','.join(line_name)
-    filename = 'Data/'+filename
+    # filename = filename
+    # filename = 'Data/'+filename
 
     np.savetxt(filename+'.csv', output, '%f', ",", newline='\n',
                 header=string_element, footer='', comments='# ')
